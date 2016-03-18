@@ -1112,7 +1112,7 @@ namespace ts {
 
         getProgram(): Program;
 
-        getSourceFile(fileName: string): SourceFile;
+        /* @internal */ getSourceFile(fileName: string): SourceFile;
 
         dispose(): void;
     }
