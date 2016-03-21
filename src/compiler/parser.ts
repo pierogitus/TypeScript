@@ -4176,7 +4176,8 @@ namespace ts {
                 const forStatement = <ForStatement>createNode(SyntaxKind.ForStatement, pos);
                 forStatement.initializer = initializer;
                 parseExpected(SyntaxKind.SemicolonToken);
-                if (token !== SyntaxKind.SemicolonToken && token !== SyntaxKind.CloseParenToken) {
+                forStatement.condition = createNode(SyntaxKind.FalseKeyword, pos)
+                if (token !== SyntaxKind.SemicolonToken && token !== SyntaxKind.CloseParenToken && token !== SyntaxKind.EndOfFileToken) {
                     forStatement.condition = allowInAnd(parseExpression);
                 }
                 parseExpected(SyntaxKind.SemicolonToken);
